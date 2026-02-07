@@ -97,7 +97,14 @@ backend/
 cd backend
 npm install
 npm start
+--- 
+## 📄 License
 
+This project is created for educational purposes.
+
+## 👥 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request
 
 Author
 
