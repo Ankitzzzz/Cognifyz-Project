@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fullstack Forms project</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Simple fullstack contact form demo using Node.js and Express" />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <main class="container">
+      <h1>Contact Form</h1>
+
+      <!-- Contact Form -->
+      <section class="card">
+        <form id="contactForm" novalidate>
+          <label for="contact-name">Name</label>
+          <input id="contact-name" name="name" required />
+
+          <label for="contact-email">Email</label>
+          <input id="contact-email" name="email" type="email" required />
+
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="4" required></textarea>
+
+          <div class="actions">
+            <button type="submit">Send</button>
+          </div>
+
+          <div id="formMessage" role="status" aria-live="polite"></div>
+        </form>
+      </section>
+
+      <!-- Register -->
+      <section class="card mt">
+        <h3>Register</h3>
+        <form id="registerForm">
+          <input name="name" placeholder="Name" required />
+          <input name="email" type="email" placeholder="Email" required />
+          <input name="password" type="password" placeholder="Password" required />
+          <button type="submit">Register</button>
+        </form>
+      </section>
+
+      <!-- Login -->
+      <section class="card mt">
+        <h3>Login</h3>
+        <form id="loginForm">
+          <input name="email" type="email" placeholder="Email" required />
+          <input name="password" type="password" placeholder="Password" required />
+          <button type="submit">Login</button>
+        </form>
+      </section>
+
+      <!-- Submissions -->
+      <section class="card mt">
+        <h3>Recent Submissions</h3>
+        <div id="submissionsList">Loading...</div>
+        <button id="refreshBtn" class="mt" type="button">Refresh</button>
+      </section>
+    </main>
+
+    <!-- Backend API base URL -->
+    <script>
+      window.API_BASE = 'http://localhost:3000';
+    </script>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>

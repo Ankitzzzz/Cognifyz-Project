@@ -1,0 +1,50 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/appdb
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=supersecret_demo
+      - OPENWEATHER_API_KEY=your_openweather_key_here
+      - FRONTEND_ORIGIN=http://localhost:5000
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: appdb
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    command: ["redis-server", "--save", "60", "1"]
+    volumes:
+      - redis-data:/data
+
+  worker:
+    build:
+      context: ./backend
+    command: npm run worker
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/appdb
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=supersecret_demo
+      - OPENWEATHER_API_KEY=your_openweather_key_here
+    depends_on:
+      - db
+      - redis
+
+volumes:
+  db-data:
+  redis-data:
