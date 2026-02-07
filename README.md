@@ -1,34 +1,118 @@
-# Fullstack Forms Demo (frontend / backend)
 
-This repository is split into two folders:
-- frontend/ — static UI (index.html, main.js, styles.css)
-- backend/ — Express API, Sequelize models, background worker
+#Backend Intern Web Application
 
-Quick start (local, SQLite, no Docker)
-1. Copy .env.example to .env and edit at least JWT_SECRET:
-   - On Windows PowerShell:
-     copy .env.example .env
+## Project Overview
 
-2. Start backend:
-   cd backend
-   npm install
-   npm run dev
-   (backend listens on http://localhost:3000)
+This is a full-stack web application developed as part of a Backend Intern (Fresher) project.
+The project demonstrates a clean **backend architecture** with **authentication**, **RESTful APIs**, **background jobs**, **database models**, and **frontend integration**.
 
-3. Start frontend (separate terminal):
-   cd frontend
-   npm install
-   npm start
-   (frontend served at http://localhost:5000)
+The backend is built using **Node.js** and **Express.js**, while the frontend uses **HTML**, **CSS**, and **JavaScript**.
 
-4. Open http://localhost:5000 and use the UI.
-   - Register and log in to obtain a token stored in localStorage.
-   - Create submissions — they will appear in Recent Submissions.
-   - If Redis & worker are running, enrichment jobs will run and update submissions.
+---
 
-Full stack with Docker Compose (Redis + Postgres + worker)
-1. Edit docker-compose.yml to set OPENWEATHER_API_KEY.
-2. From repo root:
-   docker compose up --build
-3. Backend → http://localhost:3000, Frontend served separately (or run frontend locally).
+## Project Structure
+
+```text
+backend/
+├── jobs/
+│   └── worker.js
+├── middleware/
+│   ├── auth.js
+│   └── errorHandler.js
+├── models/
+│   ├── index.js
+│   ├── submission.js
+│   └── user.js
+├── routes/
+│   ├── api/
+│   └── auth.js
+├── services/
+│   └── externalService.js
+├── utils/
+├── .env
+├── app.js
+├── server.js
+├── Dockerfile
+├── package.json
+└── package-lock.json
+├── index.html
+├── main.js
+├── styles.css
+├── package.json
+└── package-lock.json
+## Features
+
+### Must-Have
+
+- **RESTful APIs**
+  - Clean API routing and modular architecture
+  - Supports CRUD operations
+
+- **Authentication & Authorization**
+  - Middleware-based authentication
+  - Secure route access
+
+- **Database Integration**
+  - Structured models for users and submissions
+  - Centralized model management
+
+- **Error Handling**
+  - Global error handling middleware
+  - Consistent API responses
+
+- **Background Jobs**
+  - Worker-based asynchronous task handling
+
+- **External Services**
+  - Service layer for third-party API integration
+
+- **Environment Configuration**
+  - Secure configuration using `.env`
+
+- **Frontend Integration**
+  - Simple UI using **HTML**, **CSS**, and **JavaScript**
+  - API-based interaction with backend
+
+- **Docker Support**
+  - Dockerfile included for containerized deployment
+
+---
+
+## Technologies Used
+
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Node.js, Express.js
+- **Database:** MySQL / MongoDB
+- **APIs:** RESTful APIs
+- **Authentication:** Middleware-based authentication
+- **Tools:** Git, GitHub, Docker
+
+---
+
+## How to Run the Project
+
+### Backend
+
+```bash
+cd backend
+npm install
+npm start
+
+
+Author
+
+## Author
+
+**Ankit Kumar Yadav**  
+ **Mobile:** 7488575328  
+ **Email:** ankityadav7488ay@gmail.com  
+
+---
+
+## Note
+
+This project was created to demonstrate **backend development skills**, **real-world project structure**, and readiness for a **Backend Intern / Junior Backend Developer** role.
+
+
+
 
